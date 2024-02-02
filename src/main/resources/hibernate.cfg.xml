@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!-- PostgreSQL Database Connection Settings -->
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/HRManagementDB</property>
+        <property name="hibernate.connection.username">postgres</property>
+        <property name="hibernate.connection.password">postgres</property>
+
+
+        <!-- SQL Dialect -->
+        <property name="hibernate.dialect">org.hibernate.dialect.H2Dialect</property>
+
+        <!-- Echo SQL and Format -->
+        <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
+
+        <!-- Enable second-level cache -->
+        <property name="hibernate.cache.use_second_level_cache">true</property>
+        <property name="hibernate.cache.use_query_cache">true</property>
+        <property name="hibernate.cache.region.factory_class">org.hibernate.cache.jcache.JCacheRegionFactory</property>
+
+        <!-- Specify the cache provider configuration file -->
+        <property name="hibernate.javax.cache.provider">org.ehcache.jsr107.EhcacheCachingProvider</property>
+        <property name="hibernate.javax.cache.uri">ehcache.xml</property>
+
+        <!-- Entities -->
+        <mapping class="am.picsartacademy.hrmanagement.entity.Employee"/>
+        <mapping class="am.picsartacademy.hrmanagement.entity.Manager"/>
+        <mapping class="am.picsartacademy.hrmanagement.entity.Department"/>
+        <mapping class="am.picsartacademy.hrmanagement.entity.Project"/>
+
+    </session-factory>
+</hibernate-configuration>
